@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2016 at 10:16 AM
+-- Generation Time: Apr 25, 2016 at 06:04 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -91,10 +91,10 @@ CREATE TABLE `thresholdvalue` (
 --
 
 INSERT INTO `thresholdvalue` (`SENSORMODEL`, `THRESHOLD_VALUE`, `THRESHOLD_COLOR`) VALUES
-('GP2Y10', -0.6, '#3287cd'),
-('MG811', 39, '#a75894'),
-('MQ135', 4, '#ff1313'),
-('MQ2', 16, '#e80028');
+('GP2Y10', 0.11, '#ff00ff'),
+('MG811', 6000, '#ff8000'),
+('MQ135', 9, '#0524fa'),
+('MQ2', 12, '#ff0000');
 
 --
 -- Indexes for dumped tables
