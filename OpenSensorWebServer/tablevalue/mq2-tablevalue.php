@@ -25,10 +25,11 @@
 <body>
 	<div class="container">
 		<div class="row" style="background-color: #f1f1f1">
-			<div class="col-md-10">
+			<div class="col-md-1"></div>
+			<div class="col-md-9">
 				<!-- <h3 style="font-family:'Roboto Condensed', sans-serif" id="title">HỆ THỐNG GIÁM SÁT QUAN TRẮC CHẤT LƯỢNG KHÔNG KHÍ</h3> -->
-				<marquee behavior="scroll" direction="left"><h3>HỆ THỐNG GIÁM SÁT QUAN TRẮC CHẤT LƯỢNG KHÔNG KHÍ</h3></marquee>
-				</div>
+				<marquee behavior="alternate" direction="left" scrollamount="3"><h3>HỆ THỐNG GIÁM SÁT QUAN TRẮC CHẤT LƯỢNG KHÔNG KHÍ</h3></marquee>
+			</div>
 			<div class="col-md-2" style="text-align:right">
 				<br>
 				<div class="btn-group">
@@ -48,10 +49,10 @@
 		</div>
 
 		<div class="row">
-			<ul><li><h3><i>Dữ liệu cảm biến MQ135</i></h3></li></ul>
+			<ul><li><h3><i>Dữ liệu cảm biến MQ2</i></h3></li></ul>
 				<?php
 					include('../connection.php');
-					$sql = "SELECT * FROM sensorvalue WHERE SENSORMODEL = 'MQ135' ORDER BY TIME DESC";
+					$sql = "SELECT * FROM sensorvalue WHERE SENSORMODEL = 'MQ2' ORDER BY TIME DESC";
 				      $result = mysqli_query($conn, $sql);  
 				      if(mysqli_num_rows($result) > 0)  
 				      {  

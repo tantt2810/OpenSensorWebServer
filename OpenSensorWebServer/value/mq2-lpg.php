@@ -35,7 +35,7 @@
 	if($result->num_rows > 0){
 		if(mysqli_num_rows($result2) <= 0){
 			$thresholdvalue = 0;
-			$thresholdcolor = '000000';	
+			$thresholdcolor = '#0000FF';	
 		}
 		else{
 			$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
@@ -43,23 +43,26 @@
 		    $thresholdvalue = $row2['THRESHOLD_VALUE'];
 		    $thresholdcolor = $row2['THRESHOLD_COLOR'];	
 		}
-		
 
 		$row = mysqli_fetch_array($result);
 		
-		$output = "<td>".$row['TIME']."</td>".
+		// $output = "<td>".$row['TIME']."</td>".
+
+		$date=date_create($row['TIME']);
+		$date = date_format($date,"d-m-Y H:i:s");
+
+		$output = "<td>".$date."</td>".
+
 			    "<td>".$row['GAS']."</td>";
 		
-	    
+	    if($row['VALUE'] < $thresholdvalue){
+		    $output .= "<td>".$row['VALUE']."</td>";
+	    }
+		else{
+			$output .= "<td><span style='color:".$thresholdcolor."'> ".$row['VALUE']."</span></td>";
+		}
+		$output .= "<td>".$row['UNIT']."</td>";
 
-		    if($row['VALUE'] < $thresholdvalue){
-			    $output .= "<td>".$row['VALUE']."</td>";
-		    }
-			else{
-				$output .= "<td><span style='color:".$thresholdcolor."'> ".$row['VALUE']."</span></td>";
-			}
-			$output .= "<td>".$row['UNIT']."</td>";
-
-			echo $output;
+		echo $output;		
 	}
 ?>

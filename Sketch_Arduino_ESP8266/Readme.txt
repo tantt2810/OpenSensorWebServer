@@ -1,1 +1,0 @@
-This is sketch about read MQ2, MQ135, MG811, GP2Y10 value. Then use shield wifi ESP8266 send to WebServer.

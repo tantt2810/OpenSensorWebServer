@@ -53,9 +53,10 @@ else{}
 <body>
 	<div class="container">
 		<div class="row" style="background-color: #f1f1f1" id="header">
-			<div class="col-md-10">
+			<div class="col-md-1"></div>
+			<div class="col-md-9">
 				<!-- <h3 style="font-family:'Roboto Condensed', sans-serif" id="title">HỆ THỐNG GIÁM SÁT QUAN TRẮC CHẤT LƯỢNG KHÔNG KHÍ</h3> -->
-				<marquee behavior="scroll" direction="left"><h3>HỆ THỐNG GIÁM SÁT QUAN TRẮC CHẤT LƯỢNG KHÔNG KHÍ</h3></marquee>
+				<marquee behavior="alternate" direction="left" scrollamount="3"><h3>HỆ THỐNG GIÁM SÁT QUAN TRẮC CHẤT LƯỢNG KHÔNG KHÍ</h3></marquee>
 			</div>
 			<div class="col-md-2" style="text-align:right">
 				<br>

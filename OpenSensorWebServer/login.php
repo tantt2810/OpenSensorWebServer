@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['login'])){
+	header("location: index.php");
+}
+else{}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +41,22 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="Login">Đăng nhập</button>
       </form>
+
+      <br>
+      
+      <?php
+		// session_start();
+		if(isset($_SESSION['fail'])){
+			unset($_SESSION['fail']);
+			echo"
+			<div class='alert alert-danger' style='text-align:center'>
+			  <strong>Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng nhập lại !!!</strong>
+			</div>
+			";
+		}
+		else{}
+	?>
+
       <!-- </div> -->
       </div>
       </div>
@@ -51,6 +74,7 @@
 			header("location: index.php");	
 		}
 		else{
+			$_SESSION['fail'] = "LOG IN FAIL";
 			header("location: login.php");
 		}
 	}

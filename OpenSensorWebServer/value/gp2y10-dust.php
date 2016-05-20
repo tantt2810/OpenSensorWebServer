@@ -35,7 +35,7 @@
 	if($result->num_rows > 0){
 		if(mysqli_num_rows($result2) <= 0){
 			$thresholdvalue = 0;
-			$thresholdcolor = '000000';	
+			$thresholdcolor = '#0000FF';	
 		}
 		else{
 			$row2 = mysqli_fetch_array($result2, MYSQLI_ASSOC);
@@ -47,7 +47,12 @@
 
 		$row = mysqli_fetch_array($result);
 		
-		$output = "<td>".$row['TIME']."</td>".
+		// $output = "<td>".$row['TIME']."</td>".
+
+		$date=date_create($row['TIME']);
+		$date = date_format($date,"d-m-Y H:i:s");
+
+		$output = "<td>".$date."</td>".
 			    "<td>".$row['GAS']."</td>";
 		
 	    

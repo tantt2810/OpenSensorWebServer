@@ -1,5 +1,5 @@
 <?php  
- session_start();
+session_start();
 if(!isset($_SESSION['login'])){
   header("location: ../login.php");
 }
@@ -8,7 +8,7 @@ else{
    $output = '';  
    if(isset($_POST["export_excel"]))  
    {  
-        $sql = "SELECT * FROM sensorvalue WHERE SENSORMODEL = 'MG811' ORDER BY TIME DESC";  
+        $sql = "SELECT * FROM sensorvalue WHERE SENSORMODEL = 'MQ2' ORDER BY TIME DESC";
         $result = mysqli_query($conn, $sql);  
         if(mysqli_num_rows($result) > 0)  
         {  
@@ -24,15 +24,19 @@ else{
              ';  
              while($row = mysqli_fetch_array($result))  
              {  
-                  $output .= '  
-                       <tr>  
-                            <td>'.$row["SENSORMODEL"].'</td>  
-                            <td>'.$row["GAS"].'</td>  
-                            <td>'.$row["TIME"].'</td>  
-                            <td>'.$row["VALUE"].'</td>  
-                            <td>'.$row["UNIT"].'</td>  
-                       </tr>  
-                  ';  
+
+                $date=date_create($row['TIME']);
+                $date = date_format($date,"d-m-Y H:i:s");
+
+                $output .= '  
+                     <tr>  
+                          <td>'.$row["SENSORMODEL"].'</td>  
+                          <td>'.$row["GAS"].'</td>  
+                          <td>'.$date.'</td>  
+                          <td>'.$row["VALUE"].'</td>  
+                          <td>'.$row["UNIT"].'</td>  
+                     </tr>  
+                ';  
              }  
              $output .= '</table>';  
              header("Content-Type: application/xls");   

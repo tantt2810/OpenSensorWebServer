@@ -1,4 +1,11 @@
 <?php 
+
+	// session_start();
+	// if(!isset($_SESSION['login'])){
+	// 	header("location: login.php");
+	// }
+	// else{}
+
 	include('connection.php');
 
 	$val1 = $_GET['mq2'];
@@ -8,7 +15,7 @@
 
 	$fileContent = "MQ2: ".$val1." - MQ135: ".$val2." - MG811: ".$val3." - GP2Y10: ".$val4."\n";
 
-	$fileStatus = file_put_contents('myFile.txt', $fileContent, FILE_APPEND);
+	$fileStatus = file_put_contents('opensensor.txt', $fileContent, FILE_APPEND);
 
 	date_default_timezone_set("Asia/Bangkok");
 
@@ -25,8 +32,8 @@
 	}
 
 
-	if($result4 == true)
-		echo "INSERT SUCCESS !!!";
+	if($result1 && $result2 && $result3 && $result4)
+		echo " INSERT SUCCESS !!!";
 	else 
-		echo "INSERT FAIL !!!";
+		echo " INSERT FAIL !!!";
 ?>

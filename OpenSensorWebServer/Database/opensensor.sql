@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2016 at 10:16 AM
+-- Generation Time: Apr 25, 2016 at 06:21 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -74,6 +74,16 @@ CREATE TABLE `sensorvalue` (
   `UNIT` varchar(50) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
+--
+-- Dumping data for table `sensorvalue`
+--
+
+INSERT INTO `sensorvalue` (`SENSORMODEL`, `GAS`, `TIME`, `VALUE`, `UNIT`) VALUES
+('GP2Y10', 'BUI', '2016-04-25 11:13:46', 4, 'mg/m3'),
+('MG811', 'CO2', '2016-04-25 11:13:46', 3, 'ppm'),
+('MQ135', 'CO', '2016-04-25 11:13:46', 2, 'ppm'),
+('MQ2', 'LPG', '2016-04-25 11:13:46', 1, 'ppm');
+
 -- --------------------------------------------------------
 
 --
@@ -91,10 +101,10 @@ CREATE TABLE `thresholdvalue` (
 --
 
 INSERT INTO `thresholdvalue` (`SENSORMODEL`, `THRESHOLD_VALUE`, `THRESHOLD_COLOR`) VALUES
-('GP2Y10', -0.6, '#3287cd'),
-('MG811', 39, '#a75894'),
-('MQ135', 4, '#ff1313'),
-('MQ2', 16, '#e80028');
+('GP2Y10', 0.11, '#ff00ff'),
+('MG811', 6000, '#ff8000'),
+('MQ135', 9, '#0524fa'),
+('MQ2', 12, '#ff0000');
 
 --
 -- Indexes for dumped tables
